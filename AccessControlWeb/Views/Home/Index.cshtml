@@ -1,0 +1,35 @@
+﻿@model PersonViewModel
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">@Localizer["Welcome"]</h1>
+    <p>@Localizer["GeneralText"]</p>
+</div>
+<div class="container">
+
+    <div class="card">
+        <h5 class="card-header badge-warning">@Localizer["Forms"]</h5>
+        <div class="card-body">
+            @using (Html.BeginForm())
+            {
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Name)
+                    @Html.TextBoxFor(m => m.Name, new { @class = "form-control form-control-sm" })
+                    @Html.ValidationMessageFor(m => m.Name, null, new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Age)
+                    @Html.TextBoxFor(m => m.Age, new { @class = "form-control form-control-sm" })
+                    @Html.ValidationMessageFor(m => m.Age, null, new { @class = "text-danger" })
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-outline-success col-sm-2 col-md-4">@Localizer["Save"]</button>
+                </div>
+            }
+        </div>
+    </div>
+
+</div>
